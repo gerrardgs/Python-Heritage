@@ -1,8 +1,8 @@
 # KELOMPOK 12
 ANGGOTA: 
-- Gerrard Sebastian 1203220018
-- Ferry Oktariansyah 1203220006
-- Okky Rangga Pratama 1203220011
+- Gerrard Sebastian / 1203220018
+- Ferry Oktariansyah / 1203220006
+- Okky Rangga Pratama / 1203220011
 
 # Pixel Art Converter
 Pixel Art Converter adalah aplikasi yang memungkinkan Anda dengan mudah mengubah gambar konvensional menjadi seni pixel yang unik dan menarik. Aplikasi ini menggunakan algoritma konversi khusus untuk menghasilkan efek seni pixel dengan tampilan yang artistik.

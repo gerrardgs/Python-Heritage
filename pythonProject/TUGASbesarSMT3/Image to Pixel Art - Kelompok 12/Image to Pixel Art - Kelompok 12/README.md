@@ -1,4 +1,5 @@
 # KELOMPOK 12
+KELAS: IF-02-01
 ANGGOTA: 
 - Gerrard Sebastian / 1203220018
 - Ferry Oktariansyah / 1203220006

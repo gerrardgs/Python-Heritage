@@ -1,6 +1,0 @@
-Pillow
-numba
-base64
-numpy
-opencv-python
-Flask

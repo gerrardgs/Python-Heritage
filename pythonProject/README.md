@@ -1,1 +1,1 @@
-- File TUGASbesarSMT3 adalah source untuk memenuhi tugas pengganti UAS SMT 3
+- Folder TUGASbesarSMT3 adalah folder berisi source (python project) yang dibuat untuk memenuhi tugas pengganti UAS SMT 3

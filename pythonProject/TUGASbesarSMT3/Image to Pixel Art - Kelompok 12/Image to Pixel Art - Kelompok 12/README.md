@@ -1,4 +1,5 @@
 # KELOMPOK 12
+ANGGOTA: 
 - Gerrard Sebastian 1203220018
 - Ferry Oktariansyah 1203220006
 - Okky Rangga Pratama 1203220011

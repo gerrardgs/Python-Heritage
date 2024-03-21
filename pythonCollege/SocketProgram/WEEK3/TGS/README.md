@@ -9,9 +9,10 @@
 # SOAL
 1.	Membuat sebuah program server yang dapat menerima koneksi dari klien menggunakan protokol TCP. Server ini akan menerima pesan dari klien dan mengirimkan pesan balasan berisi jumlah karakter pada pesan tersebut. Gunakan port 12345 untuk server. Membuat analisa dari hasil program tersebut
 2.	Membuat sebuah program klien yang dapat terhubung ke server yang telah dibuat pada soal nomor 1. Klien ini akan mengirimkan pesan ke server berupa inputan dari pengguna dan menampilkan pesan balasan jumlah karakter yang diterima dari server. Membuat analisa dari hasil program tersebut
+<br>
 
 # JAWABAN
-## LINK GITHUB: https://bit.ly/TugasProJarWeek3Gerrard 
+<h3>LINK GITHUB: https://bit.ly/TugasProJarWeek3Gerrard </h3>
 
 ### 1.	Server Program
 ```python
@@ -52,6 +53,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
 client_socket.close()
 server_socket.close()
 ```
+<br>
 
 Penjelasan:
 -	Impor Modul Socket: Modul socket diimpor untuk menyediakan akses ke API soket BSD.
@@ -65,6 +67,7 @@ Penjelasan:
 -	Mengirim Balasan: Server mengirimkan balasan ke klien dengan client_socket.send(balasan.encode()).
 -	Menutup Socket: Setelah selesai, soket klien dan server ditutup.
 
+<br>
 
 ### 2.	Client Program
 
@@ -99,6 +102,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
 # Menutup socket
 client_socket.close()
 ```
+<br>
 
 Penjelasan:
 -	Impor Modul Socket: Sama seperti server, modul socket diimpor.
@@ -111,10 +115,13 @@ Penjelasan:
 
 Konklusi: Program diatas memungkinkan komunikasi dua arah antara server dan klien. Server menerima pesan dari klien, lalu menghitung jumlah karakter, dan mengirimkan informasi tersebut kembali ke klien. Klien mengirimkan pesan ke server dan menampilkan balasan yang diterima. Penggunaan with statement memastikan bahwa soket ditutup dengan benar, serta menghindari kebocoran sumber daya. Program diatas harus dijalankan dalam lingkungan yang mendukung protokol TCP dan memungkinkan koneksi soket (dedicated terminal).
 
+<br>
+
 ### OUTPUT PROGRAM (SOAL NO. 1 & 2)
 #### SERVER:
 ![Screenshot 2024-03-21 155119](https://github.com/gerrardgs/Python-Heritage/assets/114888829/d8aeef66-a28b-46b3-a86e-7110027b13cb)
 
+<br>
 
 #### CLIENT:
 ![Screenshot 2024-03-21 155207](https://github.com/gerrardgs/Python-Heritage/assets/114888829/52a2bc8f-027c-468a-99b4-e19e6d8d7b1a)

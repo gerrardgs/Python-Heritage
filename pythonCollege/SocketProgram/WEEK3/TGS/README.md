@@ -43,7 +43,7 @@ Penjelasan:
 Konklusi: Program diatas memungkinkan komunikasi dua arah antara server dan klien. Server menerima pesan dari klien, lalu menghitung jumlah karakter, dan mengirimkan informasi tersebut kembali ke klien. Klien mengirimkan pesan ke server dan menampilkan balasan yang diterima. Penggunaan with statement memastikan bahwa soket ditutup dengan benar, serta menghindari kebocoran sumber daya. Program diatas harus dijalankan dalam lingkungan yang mendukung protokol TCP dan memungkinkan koneksi soket (dedicated terminal).
 
 ### OUTPUT PROGRAM (SOAL NO. 1 & 2)
-SERVER:
- 
-CLIENT:
- 
+#### SERVER:
+![Screenshot 2024-03-21 155007](https://github.com/gerrardgs/Python-Heritage/assets/114888829/20d0e7d7-4276-4110-be1e-14f4b8c10610)
+
+#### CLIENT:

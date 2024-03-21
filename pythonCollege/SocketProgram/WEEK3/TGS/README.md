@@ -44,6 +44,7 @@ Konklusi: Program diatas memungkinkan komunikasi dua arah antara server dan klie
 
 ### OUTPUT PROGRAM (SOAL NO. 1 & 2)
 #### SERVER:
-![Screenshot 2024-03-21 155007](https://github.com/gerrardgs/Python-Heritage/assets/114888829/20d0e7d7-4276-4110-be1e-14f4b8c10610)
+![Screenshot 2024-03-21 155119](https://github.com/gerrardgs/Python-Heritage/assets/114888829/d8aeef66-a28b-46b3-a86e-7110027b13cb)
+
 
 #### CLIENT:

@@ -1,7 +1,10 @@
 # LAPORAN PRAKTIKUM TUGAS 2
-## NAMA: Gerrard Sebastian
-## NIM: 1203220018
-## KELAS: IF-02-01
+<br>
+
+<h3>NAMA: Gerrard Sebastian</h3>
+<h3>NIM: 1203220018</h3>
+<h3>KELAS: IF-02-01</h3>
+<br>
 
 # SOAL
 1.	Membuat sebuah program server yang dapat menerima koneksi dari klien menggunakan protokol TCP. Server ini akan menerima pesan dari klien dan mengirimkan pesan balasan berisi jumlah karakter pada pesan tersebut. Gunakan port 12345 untuk server. Membuat analisa dari hasil program tersebut

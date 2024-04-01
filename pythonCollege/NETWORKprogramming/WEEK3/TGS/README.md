@@ -70,7 +70,6 @@ Penjelasan:
 <br>
 
 ### 2.	Client Program
-
  ```python
 # CLIENT
 
@@ -125,4 +124,3 @@ Konklusi: Program diatas memungkinkan komunikasi dua arah antara server dan klie
 
 #### CLIENT:
 ![Screenshot 2024-03-21 155207](https://github.com/gerrardgs/Python-Heritage/assets/114888829/52a2bc8f-027c-468a-99b4-e19e6d8d7b1a)
-

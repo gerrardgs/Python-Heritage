@@ -125,8 +125,42 @@ while True:
 ```
 <br>
 
-Penjelasan:
+### Penjelasan:
 
+Import library (Program ini menggunakan beberapa library bawaan Python untuk menjalankan fungsinya. Library tersebut adalah):
+- socket: Digunakan untuk membuat koneksi jaringan (socket) antara server dan client.
+- os: Digunakan untuk berinteraksi dengan sistem operasi, seperti menampilkan daftar file dan menghapus file.
+- struct: (Tidak digunakan pada program ini) Digunakan untuk mengemas dan membongkar struktur data biner.
+- sys: Digunakan untuk fungsi terkait sistem, seperti keluar dari program.
+- time: (Tidak digunakan pada program ini) Digunakan untuk fungsi terkait waktu.
+
+<br>
+
+Variable dan Inisialisasi:
+- server_socket: Variabel ini menyimpan socket server yang digunakan untuk mendengarkan koneksi dari client.
+- server_address: Variabel ini berisi alamat dan port server, dalam contoh ini localhost (alamat lokal) dan port 12345. dapat diubah ke alamat dan port yang sesuai dengan kebutuhan.
+- BUFFER_SIZE: Variabel ini menentukan ukuran buffer yang digunakan untuk mengirim dan menerima data antar client dan server. nilainya adalah 1024 byte.
+
+<br>
+
+Fungsi-fungsi pada Program (Program ini memiliki beberapa fungsi yang menangani berbagai perintah dari client):
+- ls(): Fungsi ini menampilkan daftar file dan folder yang ada di direktori server. Daftar file tersebut dikirimkan ke client.
+- rm(filename): Fungsi ini menghapus file yang ditentukan oleh filename dari server. Jika file berhasil dihapus, pesan konfirmasi dikirim ke client. Sebaliknya, pesan pemberitahuan file tidak ditemukan dikirim ke client.
+- download(filename): Fungsi ini mengirimkan file yang ditentukan oleh filename dari server ke client. Isi file dibaca per BUFFER_SIZE byte dan dikirimkan ke client secara bertahap. Jika file tidak ditemukan, pesan pemberitahuan dikirim ke client.
+- upload(filename): Fungsi ini menerima file yang dikirimkan oleh client dan menyimpannya di server dengan nama filename. Data file diterima per BUFFER_SIZE byte dan ditulis ke file baru di server. Setelah selesai, pesan konfirmasi dikirim ke client.
+- size(filename): Fungsi ini menghitung ukuran file yang ditentukan oleh filename di server. Ukuran file dikonversi ke Megabyte (MB) dan kemudian dikirimkan ke client. Jika file tidak ditemukan, pesan pemberitahuan dikirim ke client.
+- byebye(): Fungsi ini menutup koneksi antara server dan client, serta menutup socket server. Program server kemudian berhenti.
+- connme(): Fungsi ini mengirim pesan ke client bahwa koneksi masih terhubung dan server siap menerima perintah selanjutnya.
+Looping dan Penanganan Perintah
+
+<br>
+
+Program menggunakan loop while True untuk terus menerus menerima perintah dari client. Didalam loop:
+- Program menerima perintah dari client menggunakan client_socket.recv(1024).decode().
+- Perintah tersebut kemudian diproses menggunakan pernyataan if dan elif untuk menentukan fungsi mana yang akan dipanggil sesuai dengan perintah.
+- Jika perintah valid, fungsi terkait akan dipanggil untuk melakukan aksi yang sesuai.
+- Jika perintah tidak valid, pesan pemberitahuan dikirim ke client.
+- Loop akan terus berjalan sampai client mengirimkan perintah byebye untuk memutuskan koneksi.
 
 <br>
 
@@ -169,13 +203,46 @@ client_socket.close()
 ```
 <br>
 
-Penjelasan:
+### Penjelasan:
 
+Import library (Program ini hanya menggunakan library socket dari Python. Library ini digunakan untuk membuat koneksi jaringan (socket) antara client dan server).
+
+<br>
+
+Variable dan Inisialisasi:
+- client_socket: Variabel ini menyimpan socket client yang digunakan untuk terhubung ke server.
+- server_address: Variabel ini berisi alamat dan port server, dalam contoh ini localhost (alamat lokal) dan port 12345. dapat diubah ke alamat dan port server yang ingin dihubungi.
+
+<br>
+
+Fungsi send_command(command):
+- Fungsi ini digunakan untuk mengirim perintah ke server dan menerima respon dari server
+- Perintah (command) yang diberikan user diubah menjadi format bytecode menggunakan command.encode().
+- Perintah tersebut kemudian dikirim ke server menggunakan client_socket.send().
+- Fungsi ini kemudian menunggu respon dari server menggunakan client_socket.recv(1024).decode(). Respon tersebut berupa pesan berbentuk string yang kemudian ditampilkan ke user menggunakan print().
+
+<br>
+
+Looping dan Input Perintah (Program menggunakan loop while True untuk terus menerus meminta user memasukkan perintah. Didalam loop):
+- Program meminta user untuk memasukkan perintah menggunakan input(). 
+- Perintah yang valid adalah ls, rm, download, upload, size, byebye, dan connme.
+- Perintah tersebut kemudian dikirim ke server beserta proses penerimaannya ditangani oleh fungsi send_command(command).
+- Jika perintah yang dimasukkan adalah byebye, loop akan berhenti dan koneksi ke server akan ditutup.
+- Program menggunakan blok try dan except untuk menangani kemungkinan error yang terjadi saat komunikasi dengan server.
 
 <br>
 
 ### Konklusi:
 
+Program server dan client merupakan dua program yang saling terkait dan bekerja sama untuk menyediakan layanan transfer data dan manajemen file. Server bertindak sebagai penyedia sumber daya dan menerima koneksi dari client, sedangkan client bertindak sebagai pengguna yang berinteraksi dengan server dan mengirimkan perintah.
+
+Kedua program ini memiliki fungsi dan fitur yang berbeda. Server dapat melakukan berbagai operasi seperti menampilkan daftar file, menghapus file, mengirim dan menerima file, serta mengecek ukuran file. Sedangkan client dapat memasukkan perintah, mengirim perintah ke server, menerima respon dari server, dan menutup koneksi dengan server.
+
+Program server dan client memiliki beberapa keuntungan, seperti memudahkan transfer file dan sumber daya, memungkinkan akses terpusat ke data, serta meningkatkan keamanan dan kontrol akses. Namun, program ini juga memiliki kekurangan, seperti membutuhkan koneksi jaringan yang stabil, server dapat menjadi target serangan cyber, dan konfigurasi server bisa rumit.
+
+Program server dan client dapat digunakan dalam berbagai aplikasi, seperti penyimpanan cloud, berbagi file antar perangkat, kolaborasi tim, backup data, dan remote access. Dengan memahami cara kerja program-program ini, dapat dimanfaatkan dengan lebih efektif untuk berbagai kebutuhan.
+
+Kesimpulannya, program server dan client merupakan alat yang penting untuk transfer data dan manajemen file. Dengan memahami cara kerja dan fitur-fiturnya, dapat digunakan untuk berbagai kebutuhan dan meningkatkan efisiensi dan kolaborasi.
 
 <br>
 

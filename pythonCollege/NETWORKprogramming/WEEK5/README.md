@@ -20,6 +20,8 @@
 # JAWABAN
 <h3>LINK GITHUB: https://bit.ly/TgsTeoriJarkom2 </h3>
 
+<h3><strong>Disclaimer: Program Dibuat Menggunakan Bahasa Python</strong></h3>
+
 ### 1.	Server Program
 ```python
 import socket
@@ -170,7 +172,14 @@ client_socket.close()
 Penjelasan:
 
 
+<br>
+
 ### Konklusi:
+
+
+<br>
+
+# CARA MENGGUNAKAN TIAP FITUR YANG TERSEDIA (7 FITUR)
 
 
 <br>

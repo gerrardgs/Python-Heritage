@@ -247,7 +247,17 @@ Kesimpulannya, program server dan client merupakan alat yang penting untuk trans
 <br>
 
 # CARA MENGGUNAKAN TIAP FITUR YANG TERSEDIA (7 FITUR)
-
+Adapun cara menggunakan tiap fitur yang tersedia adalah sebagai berikut: (Disclaimer: Ketujuh Fitur Mempunyai 2 kondisional, yaitu antara terpenuhi / benar ataupun tidak terpenuhi / salah, dan dijalankan dalam 1 workspace saja)
+- Pertama-tama, Jalankan program server terlebih dahulu,
+- Lalu jalankan program client di "dedicated terminal",
+- Lalu Pastikan server dan client sudah saling terhubung,
+- Lalu Cek dengan mengetik "connme" untuk melihat output apakah koneksi antara server dan client sudah terhubung atau tidak (Fitur 1),
+- Lalu ketik "ls" untuk mengetahui folder dan file apa saja yang ada di dalam workspace (Fitur 2),
+- Lalu ketik "size {nama file}" untuk mengetahui ukuran dari file/folder yang ada di workspace dalam bentuk MB / Mega Byte (Fitur 3),
+- Lalu ketik "rm {nama file}" untuk menghapus file yang diinginkan (Fitur 4),
+- Lalu ketik "download {nama file}" untuk men-download isi yang ada didalam file tersebut (fitur 5),
+- Lalu ketik "upload {nama file}" untuk mengubah / mengganti isi yang ada didalam file tersebut dengan command baru yang nantinya diinputkan setelah upload sukses terpanggil (Fitur 6),
+- Terakhir, ketik "byebye" untuk keluar dari terminal dan memutuskan koneksi antara server dan client (Fitur 7).
 
 <br>
 

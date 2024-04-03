@@ -255,7 +255,7 @@ Adapun cara menggunakan tiap fitur yang tersedia adalah sebagai berikut: (Discla
 - Lalu ketik "ls" untuk mengetahui folder dan file apa saja yang ada di dalam workspace (Fitur 2),
 - Lalu ketik "size {nama file}" untuk mengetahui ukuran dari file/folder yang ada di workspace dalam bentuk MB / Mega Byte (Fitur 3),
 - Lalu ketik "rm {nama file}" untuk menghapus file yang diinginkan (Fitur 4),
-- Lalu ketik "download {nama file}" untuk men-download isi yang ada didalam file tersebut (fitur 5),
+- Lalu ketik "download {filepath+nama file}" untuk men-download isi yang ada didalam file tersebut (fitur 5),
 - Lalu ketik "upload {nama file}" untuk mengubah / mengganti isi yang ada didalam file tersebut dengan command baru yang nantinya diinputkan setelah upload sukses terpanggil (Fitur 6),
 - Terakhir, ketik "byebye" untuk keluar dari terminal dan memutuskan koneksi antara server dan client (Fitur 7).
 

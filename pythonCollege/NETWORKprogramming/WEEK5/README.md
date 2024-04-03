@@ -258,6 +258,7 @@ Adapun cara menggunakan tiap fitur yang tersedia adalah sebagai berikut: (Discla
 - Lalu ketik "download {nama file}" untuk men-download isi yang ada didalam file tersebut (fitur 5),
 - Lalu ketik "upload {nama file}" untuk mengubah / mengganti isi yang ada didalam file tersebut dengan command baru yang nantinya diinputkan setelah upload sukses terpanggil (Fitur 6),
 - Terakhir, ketik "byebye" untuk keluar dari terminal dan memutuskan koneksi antara server dan client (Fitur 7).
+Untuk Contoh Lebih Jelasnya Lagi, Dapat Melihat Ke Output Program "Dokumentasi" Yang Telah Dicoba Sesuai Dengan Langkah-Langkah Cara Menggunakan Tiap Fitur Yang Telah Dijelaskan Sebelumnya.
 
 <br>
 

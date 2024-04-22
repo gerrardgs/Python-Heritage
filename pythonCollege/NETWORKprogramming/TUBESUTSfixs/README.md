@@ -56,9 +56,6 @@ if __name__ == "__main__":
     main()
 
 ```
-
-<br>
-
 ### Penjelasan:
 
 <br>
@@ -114,9 +111,6 @@ if __name__ == "__main__":
     main()
 
 ```
-
-<br>
-
 ### Penjelasan:
 
 <br>

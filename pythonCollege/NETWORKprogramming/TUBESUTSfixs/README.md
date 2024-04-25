@@ -57,6 +57,17 @@ if __name__ == "__main__":
 
 ```
 ### Penjelasan:
+Berikut Merupakan penjelasan singkat mengenai program Python "SERVER" di atas:
+- Program dimulai dengan mengimpor modul `socket`, `random`, dan `time`.
+- Lalu Fungsi utama program adalah `main()`.
+- Lalu IP server diatur sebagai `"127.0.0.1"` (localhost), dan port server diatur sebagai `12345`.
+- Lalu Socket server dibuat menggunakan `socket.AF_INET` untuk alamat IPv4, dan `socket.SOCK_DGRAM` untuk protokol UDP.
+- Lalu Server dihubungkan ke alamat IP dan port yang telah ditentukan.
+- Lalu Set `connected_clients` yang digunakan untuk melacak klien yang terhubung.
+- Lalu Selama program berjalan, maka server akan menerima data dari klien dan memprosesnya.
+- Lalu Jika data yang diterima adalah `"request_color"`, maka server menghasilkan warna acak menggunakan fungsi `generate_random_color()`.
+- Lalu Warna dikirim kembali ke klien yang meminta.
+- Terakhir Jika pengguna menekan tombol `Ctrl+C`, program akan berhenti dan socket server ditutup.
 
 <br>
 
@@ -112,11 +123,43 @@ if __name__ == "__main__":
 
 ```
 ### Penjelasan:
+Berikut adalah penjelasan singkat mengenai program Python "CLIENT" di atas:
+- Program dimulai dengan mengimpor modul `socket` dan `time`.
+- Lalu Fungsi utama program adalah `main()`.
+- Lalu IP server diatur sebagai `"127.0.0.1"` (localhost), dan port server diatur sebagai `12345`.
+- Lalu Socket klien dibuat menggunakan `socket.AF_INET` untuk alamat IPv4, dan `socket.SOCK_DGRAM` untuk protokol UDP.
+- Lalu Klien mengirim permintaan `"request_color"` ke server.
+- Lalu Klien menerima warna dari server, dan mendekode data yang diterima.
+- Lalu Klien menampilkan warna yang diterima dari server.
+- Lalu Pengguna diminta memasukkan warna dalam bahasa Indonesia.
+- Lalu Klien membandingkan jawaban pengguna dengan terjemahan warna Inggris ke bahasa Indonesia.
+- Terakhir Jika pengguna menekan `Ctrl+C`, maka program akan berhenti dan socket klien ditutup.
 
 <br>
 
-## HOW CODE WORKS?
+## HOW THE PROGRAM WORKS?
+### Python Server Program:
+- Program dimulai dengan menginisialisasi alamat IP server (`server_ip`), dan port server (`server_port`).
+- Lalu Socket server dibuat menggunakan `socket.AF_INET` untuk alamat IPv4, dan `socket.SOCK_DGRAM` untuk protokol UDP.
+- Lalu Server diikat ke alamat IP dan port yang telah ditentukan menggunakan `server_socket.bind((server_ip, server_port))`.
+- Lalu Set `connected_clients` digunakan untuk melacak alamat klien yang terhubung.
+- Lalu Selama program berjalan, server menerima data dari klien dan memprosesnya.
+- Lalu Jika data yang diterima adalah `"request_color"`, maka server akan memanggil fungsi `generate_random_color()` untuk menghasilkan warna acak.
+- Lalu Warna dikirim kembali ke klien yang meminta menggunakan `server_socket.sendto(color.encode("utf-8"), client_address)`.
+- Terakhir Jika pengguna menekan `Ctrl+C`, maka program akan berhenti dan socket server ditutup menggunakan `server_socket.close()`.
 
 <br>
 
-## EXAMPLES OF PROGRAM USE
+### Python Client Program:
+- Program dimulai dengan menginisialisasi alamat IP server (`server_ip`) dan port server (`server_port`).
+- Lalu Socket klien dibuat menggunakan `socket.AF_INET` untuk alamat IPv4, dan `socket.SOCK_DGRAM` untuk protokol UDP.
+- Lalu Klien mengirim permintaan `"request_color"` ke server menggunakan `client_socket.sendto("request_color".encode("utf-8"), (server_ip, server_port))`.
+- Lalu Klien menerima warna dari server dan mendekode data yang diterima menggunakan `color, server_address = client_socket.recvfrom(1024)`.
+- Lalu Klien menampilkan warna yang diterima dari server.
+- Lalu Pengguna diminta memasukkan warna dalam bahasa Indonesia.
+- Lalu Klien membandingkan jawaban pengguna dengan terjemahan warna Inggris ke bahasa Indonesia menggunakan fungsi `english_to_indonesian_color()`.
+- Terakhir Jika pengguna menekan `Ctrl+C`, maka program akan berhenti dan socket klien ditutup menggunakan `client_socket.close()`.
+
+<br>
+
+## EXAMPLES OF PROGRAM USE (DOCUMENTATIONS)

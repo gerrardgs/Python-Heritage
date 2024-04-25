@@ -163,3 +163,46 @@ Berikut adalah penjelasan singkat mengenai program Python "CLIENT" di atas:
 <br>
 
 ## EXAMPLES OF PROGRAM USE (DOCUMENTATIONS)
+### SERVER
+![Screenshot 2024-04-26 002121](https://github.com/gerrardgs/Python-Heritage/assets/114888829/0d4aeab1-8142-4517-bbad-377dec8f714d)
+
+<br>
+
+### CLIENT
+![Screenshot 2024-04-26 001743](https://github.com/gerrardgs/Python-Heritage/assets/114888829/08dbf862-ca43-4cf7-ae8e-cbda53136704)
+
+<br>
+
+![Screenshot 2024-04-26 001728](https://github.com/gerrardgs/Python-Heritage/assets/114888829/8eeae92f-fd11-4a0d-8418-b7a67590d352)
+
+<br>
+
+![Screenshot 2024-04-26 001650](https://github.com/gerrardgs/Python-Heritage/assets/114888829/228d9429-e72d-4b72-8c53-34d1291a89c0)
+
+<br>
+
+![Screenshot 2024-04-26 001630](https://github.com/gerrardgs/Python-Heritage/assets/114888829/b79da6e8-d61a-4abf-925f-693a02e1a608)
+
+<br>
+
+![Screenshot 2024-04-26 001618](https://github.com/gerrardgs/Python-Heritage/assets/114888829/490a51c6-402c-48ee-80ad-1259bae735e8)
+
+<br>
+
+![Screenshot 2024-04-26 001757](https://github.com/gerrardgs/Python-Heritage/assets/114888829/f1353836-f74a-4fe0-b6c1-d14676f0f3a8)
+
+<br>
+
+![Screenshot 2024-04-26 001913](https://github.com/gerrardgs/Python-Heritage/assets/114888829/89187882-d963-4c79-8012-c08b21ec5944)
+
+<br>
+
+![Screenshot 2024-04-26 001844](https://github.com/gerrardgs/Python-Heritage/assets/114888829/8229290d-f5af-41a4-927b-e049f7b571eb)
+
+<br>
+
+![Screenshot 2024-04-26 001830](https://github.com/gerrardgs/Python-Heritage/assets/114888829/1cff2420-295c-45d0-98d2-a24b9182016c)
+
+<br>
+
+![Screenshot 2024-04-26 001819](https://github.com/gerrardgs/Python-Heritage/assets/114888829/d8253f60-8a9b-442d-a76f-f8811baa43d7)

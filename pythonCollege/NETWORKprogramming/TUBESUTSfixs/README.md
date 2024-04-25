@@ -162,6 +162,11 @@ Berikut adalah penjelasan singkat mengenai program Python "CLIENT" di atas:
 
 <br>
 
+### Additional Information
+Program Akan Terus Melakukan Looping (Perulangan) Dengan Jeda Waktu 10 Detik Setelah Aktivitas Antara Server Dan Client Sudah Berjalan Dan Masih Tetap Berjalan Di Dalam Terminal, Dan Program Akan Berhenti Saling Terhubung Antar Server Dan Client Ketika Client Melakukan "Kill Terminal" Atau Menekan Tombol `Ctrl+C`.
+
+<br>
+
 ## EXAMPLES OF PROGRAM USE (DOCUMENTATIONS)
 ### SERVER
 ![Screenshot 2024-04-26 002121](https://github.com/gerrardgs/Python-Heritage/assets/114888829/0d4aeab1-8142-4517-bbad-377dec8f714d)

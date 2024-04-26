@@ -1,2 +1,2 @@
 # Python-Heritage
-Learn 'Bout Python Language ~ Data Science Projects
+Learn 'Bout Python Language ~ COLLEGE & Data Science Projects

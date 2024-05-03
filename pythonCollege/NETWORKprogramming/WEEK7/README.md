@@ -163,7 +163,9 @@ while True:
 
 ```
 ### Penjelasan:
+Program Python ini merupakan program server yang berjalan pada komputer dan dapat diakses oleh client (program lain) melalui jaringan. Server ini dapat menerima instruksi dari client berupa perintah upload, list_files, download, delete (disingkat delf), size, dan quit. 
 
+Ketika client memberikan instruksi upload, server akan menerima dan menyimpan file yang dikirimkan client. Instruksi list_files akan membuat server mengirimkan daftar file yang ada di server beserta ukurannya kepada client. Perintah download digunakan client untuk meminta file tertentu dari server. Server akan mengirimkan file tersebut jika tersedia. Instruksi delf digunakan untuk menghapus file tertentu di server. Namun, penghapusan hanya akan dilakukan jika client mengkonfirmasi persetujuan. Perintah size akan meminta server untuk memberikan informasi ukuran file tertentu dalam satuan Megabyte (MB). Terakhir, instruksi quit akan memutuskan koneksi antara server dan client, serta mengakhiri program server. 
 
 <br>
 
@@ -389,10 +391,16 @@ while True:
         print("Perintah tidak dikenali, silahkan coba lagi")
 ```
 ### Penjelasan:
+Menghubungkan ke server: Client dapat terhubung ke server menggunakan perintah `connme`. Perintah ini akan mencoba melakukan koneksi ke server dengan alamat IP dan port yang ditentukan. Jika koneksi berhasil, client akan menampilkan pesan "Terhubung ke Server". Menampilkan daftar file: Client dapat melihat daftar file yang ada di server menggunakan perintah `ls`. Perintah ini akan mengirimkan permintaan ke server, dan server akan merespon dengan daftar nama file, ukuran file, dan total ukuran direktori. Mengunggah file: Client dapat mengunggah file ke server menggunakan perintah `upload` diikuti dengan nama file. Perintah ini akan mengirimkan file ke server, dan server akan menyimpannya di direktori yang ditentukan. Mengunduh file: Client dapat mengunduh file dari server menggunakan perintah `download` diikuti dengan nama file. Perintah ini akan meminta file dari server, dan server akan mengirimkan file tersebut ke client. Menghapus file: Client dapat menghapus file dari server menggunakan perintah `rm` diikuti dengan nama file. Perintah ini akan mengirimkan permintaan ke server untuk menghapus file, dan server akan menghapusnya jika file tersebut ada. Melihat ukuran file: Client dapat melihat ukuran file di server menggunakan perintah `size` diikuti dengan nama file. Perintah ini akan mengirimkan permintaan ke server untuk mendapatkan ukuran file, dan server akan merespon dengan informasi ukuran file dalam satuan MB. Menutup koneksi: Client dapat menutup koneksi ke server menggunakan perintah `byebye`. Perintah ini akan mengirimkan pesan ke server untuk menutup koneksi, dan program client akan keluar.
 
+Program client ini menggunakan loop `while True` untuk terus menerus meminta input dari user. User dapat memasukkan perintah yang ingin dijalankan, dan program akan memproses perintah tersebut. Jika user memasukkan perintah yang tidak dikenali, program akan menampilkan pesan "Perintah tidak dikenali, silahkan coba lagi". Perlu diingat bahwa client harus terhubung ke server sebelum dapat menjalankan perintah apa pun . 
 
 <br>
 
+## Penjelasan Tambahan
+- TASK 1 = program dalam bentuk input berupa "path args", ketika pengguna memasukkan command "download <file_path>" maka file yang didownload akan langsung tersimpan dalam folder didalam penyimpanan laptop/pc.
+- TASK 2 = ketika pengguna memasukkan command download <file_path>, ketika download tersebut sukses atau berhasil, maka program wajib menampilkan indikator "File Berhasil Disimpan" dan tambahan nama file yang disimpan beserta size nya dalam format 'BYTES' (Berlaku Hanya Dalam command Download).
+- TASK 3 = ketika pengguna memasukkan command upload <file_path> dengan format yang sama dan diulang sebanyak 2 kali bahkan lebih (contohnya adalah upload E:\VSCODE\CODINGAN KULIAH\SMT4\README.txt), yang dimasukkan sebanyak 2 kali bahkan lebih, maka program secara otomatis akan menduplikat file yang diupload beserta isinya (contoh ketika pengguna mengupload file path "E:\VSCODE\CODINGAN KULIAH\SMT4\README.txt" dan menjalankan command tersebut di client sebanyak 2 kali, maka file "README.txt" akan terduplikat dan bertambah menjadi "README_(1).txt" dan nomor tersebut akan terus bertambah sesuai dengan seberapa banyak user mengulangi command yang sama (Berlaku Hanya Dalam command Upload)
 ## CARA MENGGUNAKAN PROGRAM
 
 

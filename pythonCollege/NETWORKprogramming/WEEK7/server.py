@@ -1,102 +1,145 @@
 import socket
-import os
-import struct
 import sys
 import time
+import os
+import struct
 
-# Initialize socket
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_address = ('localhost', 12345)  # Change to appropriate address and port
+print("\nMenunggu koneksi client...\n")
 
-# Bind socket to server address
-server_socket.bind(server_address)
-
-# Listen for incoming connections
-server_socket.listen(1)
-print("Waiting for connection from the client...")
-
-# Accept connection from client
-client_socket, client_address = server_socket.accept()
-print(f"Connected to {client_address}")
-
+TCP_IP = "127.0.0.1"
+TCP_PORT = 1456
 BUFFER_SIZE = 1024
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind((TCP_IP, TCP_PORT))
+s.listen(1)
+conn, addr = s.accept()
 
-def ls():
-    file_list = os.listdir('.')
-    response = "\n".join(file_list)
-    client_socket.send(response.encode())
+print("\n Koneksi terhubung dengan alamat : {}".format(addr))
 
-def rm(filename):
-    if os.path.exists(filename):
-        os.remove(filename)
-        client_socket.send("File berhasil dihapus.".encode())
+# buat fungsi upload {nama file} : ketika client menginputkan command tersebut, maka server akan menerima dan menyimpan file dengan acuan nama file yang diberikan pada parameter pertama
+def upld():
+    conn.send(b"1")
+    file_name_length = struct.unpack("h", conn.recv(2))[0]
+    file_name = conn.recv(file_name_length).decode()
+
+    # Check if the file already exists
+    original_file_name = file_name
+    counter = 1
+    while os.path.exists(file_name):
+        # If the file exists, append a number to the file name
+        file_name = f"{os.path.splitext(original_file_name)[0]}_{counter}{os.path.splitext(original_file_name)[1]}"
+        counter += 1
+
+    conn.send(b"1")
+    file_size = struct.unpack("i", conn.recv(4))[0]
+    start_time = time.time()
+    print(f"Menerima file: {file_name}")
+    content = open(file_name, "wb")
+    l = conn.recv(BUFFER_SIZE)
+    while l:
+        content.write(l)
+        l = conn.recv(BUFFER_SIZE)
+    content.close()
+    conn.send(struct.pack("f", time.time() - start_time))
+    conn.send(struct.pack("i", file_size))
+    print("File berhasil diterima")
+    return
+
+# buat fungsi list_files : ketika client menginputkan command tersebut, maka server akan memberikan list file yang ada pada server
+def list_files():
+    print("Listing files...")
+    listing = os.listdir(os.getcwd())
+    conn.send(struct.pack("i", len(listing)))
+    total_directory_size = 0
+    for i in listing:
+        conn.send(struct.pack("i", sys.getsizeof(i)))
+        conn.send(i.encode())
+        conn.send(struct.pack("i", os.path.getsize(i)))
+        total_directory_size += os.path.getsize(i)
+        conn.recv(BUFFER_SIZE)
+    conn.send(struct.pack("i", total_directory_size))
+    conn.recv(BUFFER_SIZE)
+    print("File berhasil dilisting")
+    return
+
+# buat fungsi download {nama file} : ketika client menginputkan command tersebut, maka server akan memberikan file dengan acuan nama file yang diberikan pada parameter pertama
+def dwld():
+    conn.send(b"1")
+    file_name_length = struct.unpack("h", conn.recv(2))[0]
+    file_name = conn.recv(file_name_length).decode()
+    if os.path.isfile(file_name):
+        conn.send(struct.pack("i", os.path.getsize(file_name)))
     else:
-        client_socket.send("File tidak ditemukan.".encode())
+        print("Nama file tidak benar")
+        conn.send(struct.pack("i", -1))
+        return
+    conn.recv(BUFFER_SIZE)
+    start_time = time.time()
+    print("Mengirim file...")
+    content = open(file_name, "rb")
+    l = content.read(BUFFER_SIZE)
+    while l:
+        conn.send(l)
+        l = content.read(BUFFER_SIZE)
+    content.close()
+    conn.recv(BUFFER_SIZE)
+    conn.send(struct.pack("f", time.time() - start_time))
+    print("File berhasil dikirim")
+    return
 
-def download(filename):
-    if os.path.exists(filename):
-        with open(filename, 'rb') as file:
-            while True:
-                data = file.read(BUFFER_SIZE)
-                if not data:
-                    break
-                client_socket.send(data)
+# buat fungsi delf : ketika client menginputkan command tersebut, maka server akan menghapus file dengan acuan nama file yang diberikan pada parameter pertama
+def delf():
+    conn.send(b"1")
+    file_name_length = struct.unpack("h", conn.recv(2))[0]
+    file_name = conn.recv(file_name_length).decode()
+    if os.path.isfile(file_name):
+        conn.send(struct.pack("i", 1))
     else:
-        client_socket.send("File tidak ditemukan.".encode())
-
-def upload(filename, folder):
-    if os.path.exists(os.path.join(folder, filename)):
-        client_socket.send("File dengan nama yang sama sudah ada di server.".encode())
+        conn.send(struct.pack("i", -1))
+    confirm_delete = conn.recv(BUFFER_SIZE).decode()
+    if confirm_delete == "Y":
+        try:
+            os.remove(file_name)
+            conn.send(struct.pack("i", 1))
+        except:
+            print("Gagal menghapus {}".format(file_name))
+            conn.send(struct.pack("i", -1))
     else:
-        data = client_socket.recv(BUFFER_SIZE)
-        with open(os.path.join(folder, filename), 'wb') as file:
-            file.write(data)
-        client_socket.send(f"File '{filename}' berhasil disimpan di folder '{folder}'.".encode())
+        print("Fitur delete ditinggalkan klien!")
+        return
 
-def size(filename):
-    if os.path.exists(filename):
-        file_size = os.path.getsize(filename) / (1024 * 1024)  # Convert to MB
-        client_socket.send(f"Ukuran file {filename}: {file_size:.2f} MB".encode())
+# buat fungsi size {nama file} : ketika client menginputkan command tersebut, maka server akan memberikan informasi file dalam satuan MB (Mega bytes) dengan acuan nama file yang diberikan pada parameter pertama
+def get_file_size():
+    conn.send(b"1")
+    file_name_length = struct.unpack("h", conn.recv(2))[0]
+    file_name = conn.recv(file_name_length).decode()
+    if os.path.isfile(file_name):
+        conn.send(struct.pack("i", os.path.getsize(file_name)))
     else:
-        client_socket.send("File tidak ditemukan.".encode())
+        conn.send(struct.pack("i", -1))
+    return
 
-def byebye():
-    client_socket.send("Terima kasih! Koneksi akan diputus.".encode())
-    client_socket.close()
-    server_socket.close()
-    sys.exit()
-
-def connme():
-    client_socket.send("Koneksi tetap terhubung.".encode())
+# buat fungsi quit : ketika client menginputkan command byebye, maka server akan menutup koneksi dengan client
+def quit():
+    conn.send(b"1")
+    conn.close()
+    s.close()
+    os.execl(sys.executable, sys.executable, *sys.argv)
 
 while True:
-    try:
-        # Receive command from client
-        command = client_socket.recv(1024).decode()
-        if not command:
-            break
-
-        # Process command
-        if command == "ls":
-            ls()
-        elif command.startswith("rm "):
-            rm(command.split()[1])
-        elif command.startswith("download "):
-            filename = command.split()[1]
-            download(filename)
-        elif command.startswith("upload "):
-            filename = command.split()[1]
-            folder = "uploads"  # Folder tujuan untuk menyimpan file
-            upload(filename, folder)
-        elif command.startswith("size "):
-            filename = command.split()[1]
-            size(filename)
-        elif command == "byebye":
-            byebye()
-        elif command == "connme":
-            connme()
-        else:
-            client_socket.send("Perintah tidak valid.".encode())
-    except Exception as e:
-        print(f"Error: {e}")
-        break
+    print("\n\nMenunggu Instruksi...")
+    data = conn.recv(BUFFER_SIZE).decode()
+    print("\nInstruksi Diterima: {}".format(data))
+    if data == "upload":
+        upld()
+    elif data == "ls":
+        list_files()
+    elif data == "download":
+        dwld()
+    elif data == "rm":
+        delf()
+    elif data == "size":
+        get_file_size()
+    elif data == "byebye":
+        quit()
+    data = None

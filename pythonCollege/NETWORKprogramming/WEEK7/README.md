@@ -401,9 +401,13 @@ Program client ini menggunakan loop `while True` untuk terus menerus meminta inp
 - TASK 1 = program dalam bentuk input berupa "path args", ketika pengguna memasukkan command "download <file_path>" maka file yang didownload akan langsung tersimpan dalam folder didalam penyimpanan laptop/pc.
 - TASK 2 = ketika pengguna memasukkan command download <file_path>, ketika download tersebut sukses atau berhasil, maka program wajib menampilkan indikator "File Berhasil Disimpan" dan tambahan nama file yang disimpan beserta size nya dalam format 'BYTES' (Berlaku Hanya Dalam command Download).
 - TASK 3 = ketika pengguna memasukkan command upload <file_path> dengan format yang sama dan diulang sebanyak 2 kali bahkan lebih (contohnya adalah upload E:\VSCODE\CODINGAN KULIAH\SMT4\README.txt), yang dimasukkan sebanyak 2 kali bahkan lebih, maka program secara otomatis akan menduplikat file yang diupload beserta isinya (contoh ketika pengguna mengupload file path "E:\VSCODE\CODINGAN KULIAH\SMT4\README.txt" dan menjalankan command tersebut di client sebanyak 2 kali, maka file "README.txt" akan terduplikat dan bertambah menjadi "README_(1).txt" dan nomor tersebut akan terus bertambah sesuai dengan seberapa banyak user mengulangi command yang sama (Berlaku Hanya Dalam command Upload)
+
+<br>
+
 ## CARA MENGGUNAKAN PROGRAM
 
 
+<br>
 
 # OUTPUT PROGRAM (DOCUMENTATION)
 ## No. 1 - 3

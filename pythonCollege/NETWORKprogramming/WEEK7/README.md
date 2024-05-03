@@ -405,7 +405,73 @@ Program client ini menggunakan loop `while True` untuk terus menerus meminta inp
 <br>
 
 ## CARA MENGGUNAKAN PROGRAM
+1.  Buka terminal dan jalankan program server. Gunakan perintah berikut:
 
+```
+python server_program.py
+```
+
+2.  Pastikan server berjalan dengan benar. Anda akan melihat pesan "Menunggu koneksi client..." di terminal.
+
+Menjalankan Client:
+
+1.  Buka terminal lain dan jalankan program client. Gunakan perintah berikut:
+
+```
+python client_program.py
+```
+
+2.  Hubungkan ke server. Gunakan perintah berikut:
+
+```
+connme
+```
+
+3.  Setelah terhubung, Anda dapat menggunakan perintah-perintah berikut untuk melakukan operasi pada file:
+- ls: Menampilkan daftar file di server.
+- upload <file path>: Mengunggah file ke server. Ganti `<file path>` dengan <file path> yang ingin Anda unggah.
+- download <file path>: Mengunduh file dari server. Ganti `<file path>` dengan <file path> yang ingin Anda unduh.
+- rm <nama file>: Menghapus file dari server. Ganti `<nama file>` dengan nama file yang ingin Anda hapus.
+- size <nama file>: Melihat ukuran file di server. Ganti `<nama file>` dengan nama file yang ingin Anda ketahui ukurannya.
+- byebye: Menutup koneksi ke server dan keluar dari program client.
+
+Contoh Penggunaan:
+
+1.  Unggah file bernama "README.md" ke server:
+
+```
+upload E:\VSCODE\CODINGAN KULIAH\SMT4\README.md
+```
+
+2.  Lihat daftar file di server:
+
+```
+ls
+```
+
+3.  Unduh file bernama "README.md" dari server:
+
+```
+download E:\VSCODE\CODINGAN KULIAH\SMT4\README.md
+```
+
+4.  Hapus file bernama "README.md" dari server:
+
+```
+rm README.md
+```
+
+5.  Lihat ukuran file bernama "README.md" di server:
+
+```
+size README.md
+```
+
+6.  Tutup koneksi ke server dan keluar dari program client:
+
+```
+byebye
+```
 
 <br>
 

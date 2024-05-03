@@ -44,11 +44,14 @@ def download(filename):
     else:
         client_socket.send("File tidak ditemukan.".encode())
 
-def upload(filename):
-    data = client_socket.recv(BUFFER_SIZE)
-    with open(filename, 'wb') as file:
-        file.write(data)
-    client_socket.send("File berhasil disimpan.".encode())
+def upload(filename, folder):
+    if os.path.exists(os.path.join(folder, filename)):
+        client_socket.send("File dengan nama yang sama sudah ada di server.".encode())
+    else:
+        data = client_socket.recv(BUFFER_SIZE)
+        with open(os.path.join(folder, filename), 'wb') as file:
+            file.write(data)
+        client_socket.send(f"File '{filename}' berhasil disimpan di folder '{folder}'.".encode())
 
 def size(filename):
     if os.path.exists(filename):
@@ -83,7 +86,8 @@ while True:
             download(filename)
         elif command.startswith("upload "):
             filename = command.split()[1]
-            upload(filename)
+            folder = "uploads"  # Folder tujuan untuk menyimpan file
+            upload(filename, folder)
         elif command.startswith("size "):
             filename = command.split()[1]
             size(filename)

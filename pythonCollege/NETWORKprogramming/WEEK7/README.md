@@ -1,4 +1,4 @@
-# TUGAS LANJUTAN DARI WEEK 5: https://bit.ly/TgsTeoriJarkom2
+# TUGAS "TEORI" LANJUTAN DARI WEEK 5: https://bit.ly/TgsTeoriJarkom2
 
 <br>
 

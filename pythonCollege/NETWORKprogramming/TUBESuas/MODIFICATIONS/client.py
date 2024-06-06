@@ -96,7 +96,7 @@ def receive_file(client_socket, filename):
 
 def start_client():
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client_socket.connect(('0.0.0.0', 11005))
+    client_socket.connect(('10.169.13.13', 11005))
 
     username = input("Enter your username: ")
     client_socket.send(username.encode())

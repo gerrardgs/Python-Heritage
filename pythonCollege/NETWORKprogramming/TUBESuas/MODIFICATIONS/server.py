@@ -90,7 +90,7 @@ def receive_file(sender_socket, recipient_socket, filename):
 
 def start_server():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind(('0.0.0.0', 11005))
+    server.bind(('10.169.13.13', 11005))
     server.listen(5)
 
     try:

@@ -1,3 +1,7 @@
+## KETERANGAN: Program dapat dilihat di file `server.py` dan `client.py`
+
+<br>
+
 # HOSTING STEP-BY-STEP
 1. daftarkan kelompok anda
 2. akses server:
